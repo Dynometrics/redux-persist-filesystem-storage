@@ -30,6 +30,7 @@ const FilesystemStorage = {
   ) =>
     RNFetchBlob.fs.writeFile(pathForKey(key), value, options.encoding)
       .then(() => callback && callback())
+      // $FlowFixMe: TODO need to fix
       .catch(error => callback(error && error)),
 
   getItem: (
